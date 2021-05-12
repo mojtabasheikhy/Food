@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+       <variable
+           name="recipesmain"
+           type="com.example.foodapp.viewmodel.MainViewModel" />
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recipes_fab"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="bottom|end"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_restaurant"
+            app:backgroundTint="@color/purple_700"
+            app:tint="@color/primaryLightColor" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.recipes_frg">
+
+        <com.todkars.shimmer.ShimmerRecyclerView
+            android:id="@+id/recipes_shimerrecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:shimmer_recycler_item_count="15"
+            app:shimmer_recycler_layout="@layout/item_shimmer_recycler_placeholder"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+
+        <ImageView
+            android:id="@+id/recipes_error_iv"
+            ReadApiResponseImage="@{recipesmain.mld_getdata_recipes_response}"
+            ReadDataBaseImage="@{recipesmain.mld_read_localdatabase}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha=".5"
+            android:src="@drawable/ic_disconnect"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/recipes_shimerrecycler"
+            app:layout_constraintEnd_toEndOf="@+id/recipes_shimerrecycler"
+            app:layout_constraintStart_toStartOf="@+id/recipes_shimerrecycler"
+            app:layout_constraintTop_toTopOf="@+id/recipes_shimerrecycler"
+            app:layout_constraintVertical_bias="0.32" />
+
+        <TextView
+            android:id="@+id/recipes_error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            ReadApiResponseTextView="@{recipesmain.mld_getdata_recipes_response}"
+            ReadDataBaseTextView="@{recipesmain.mld_read_localdatabase}"
+            android:alpha=".5"
+            android:text="No Internnet Connection"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/recipes_error_iv"
+            app:layout_constraintStart_toStartOf="@+id/recipes_error_iv"
+            app:layout_constraintTop_toBottomOf="@+id/recipes_error_iv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

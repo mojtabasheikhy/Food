@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="favoriteadpter"
+            type="com.example.foodapp.adapter.Favorite_adapter" />
+        <variable
+            name="mainviewmodel"
+            type="com.example.foodapp.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="#F4F4F4"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layoutAnimation="@anim/item_layout_animation"
+            android:id="@+id/favorite_recycler"
+            android:layout_width="match_parent"
+            viewvisibility="@{mainviewmodel.mld_read_favorite}"
+            setdata="@{favoriteadpter}"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/favorite_nodata_iv"
+            android:layout_width="wrap_content"
+            viewvisibility="@{mainviewmodel.mld_read_favorite}"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="244dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_notes" />
+
+        <TextView
+            android:id="@+id/favorite_nodata_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            viewvisibility="@{mainviewmodel.mld_read_favorite}"
+            android:fontFamily="@font/alex_brush"
+            android:text="No Data saved"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/favorite_nodata_iv"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="@+id/favorite_nodata_iv"
+            app:layout_constraintTop_toBottomOf="@+id/favorite_nodata_iv"
+            app:layout_constraintVertical_bias="0.062" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

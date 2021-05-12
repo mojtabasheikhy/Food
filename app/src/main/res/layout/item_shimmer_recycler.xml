@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="response"
+            type="com.example.foodapp.model.Result" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:elevation="15dp"
+            setonclick="@{response}"
+            app:cardCornerRadius="15dp"
+            app:strokeColor="@color/gray"
+            app:strokeWidth=".5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:scaleType="centerCrop"
+                    android:layout_width="0dp"
+                    setimageoffood="@{response.image}"
+                    android:id="@+id/item_shimmer_iv_main"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    tools:src="@drawable/ic_emoji" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:text="@{response.title}"
+                        android:id="@+id/item_shimmer_subject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/courgette"
+                        android:maxLines="1"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        tools:text="this is test" />
+
+                    <TextView
+                        android:id="@+id/item_shimmer_tv_desc_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/item_shimmer_subject"
+                        android:layout_marginTop="8dp"
+                        android:ellipsize="end"
+                        tools:text="summary "
+                        android:justificationMode="inter_word"
+                        android:maxLines="3"
+                        android:minHeight="60dp"
+                        android:textColor="@color/gray"
+                        android:textSize="13sp"
+                         htmlParce="@{response.summary}"/>
+
+                    <LinearLayout
+                        android:id="@+id/item_shimmer_iv_about"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_above="@id/item_shimmer_tv_about"
+                        android:layout_below="@id/item_shimmer_tv_desc_placeholder"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_favorite"
+                            app:tint="@color/red" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_time"
+                            app:tint="@color/orange" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            setcolorvegan="@{response.vegan}"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_eco"
+                            app:tint="@color/gray" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/item_shimmer_tv_about"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:id="@+id/item_shimmer_tv_about_like"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textColor="@color/red"
+                            android:textSize="10sp"
+                            setNumberOfLike="@{response.aggregateLikes              }"
+                            android:textStyle="bold"
+                            tools:text="100" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:id="@+id/item_shimmer_tv_about_time"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textColor="@color/orange"
+                            android:textSize="10sp"
+                            setTimetoCook="@{response.readyInMinutes}"
+                            android:textStyle="bold"
+                            tools:text="100"
+                            />
+
+                        <TextView
+                            setcolorvegan="@{response.vegan}"
+                            android:id="@+id/item_shimmer_tv_about_eco"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textColor="@color/gray"
+                            android:textSize="10sp"
+                            android:text="Veagn"
+                            android:textStyle="bold"
+                             />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </FrameLayout>
+</layout>
