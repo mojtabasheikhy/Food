@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     fun navcontroller() {
         nav_controller = findNavController(R.id.main_nav_host)
-        var appbar_configurration =
-            AppBarConfiguration(setOf(R.id.recipes_frg, R.id.favorite_recipes_frg, R.id.joke_frg))
+        var appbar_configurration = AppBarConfiguration(setOf(R.id.recipes_frg, R.id.favorite_recipes_frg, R.id.joke_frg))
         bottomNavigationView.setupWithNavController(nav_controller)
         setupActionBarWithNavController(nav_controller, appbar_configurration)
 

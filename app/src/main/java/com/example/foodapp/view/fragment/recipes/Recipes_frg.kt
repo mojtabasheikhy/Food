@@ -44,10 +44,7 @@ class recipes_frg : Fragment(), View.OnClickListener, SearchView.OnQueryTextList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainViewModel = ViewModelProvider(
-            requireActivity(),
-            defaultViewModelProviderFactory
-        ).get(com.example.foodapp.viewmodel.MainViewModel::class.java)
+        mainViewModel = ViewModelProvider(requireActivity(), defaultViewModelProviderFactory).get(com.example.foodapp.viewmodel.MainViewModel::class.java)
         recipesViewModel = ViewModelProvider(requireActivity()).get(RecipesViewModel::class.java)
 
     }
@@ -128,6 +125,7 @@ class recipes_frg : Fragment(), View.OnClickListener, SearchView.OnQueryTextList
                     it.data?.let {
                         mdadpter.setdata(it)
                     }
+                    Log.e("Sd", it.data.toString())
                 }
                 is NetworkResualt.Error -> {
                     loaddatabase_when_networkerorr()

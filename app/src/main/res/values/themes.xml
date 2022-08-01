@@ -33,7 +33,7 @@
     
     
     <style name="tablayout_custom" parent="Widget.MaterialComponents.TabLayout">
-        <item name="background_color">#8263B8</item>
+        <item name="backgroundColor">#8263B8</item>
         <item name="tabIndicatorHeight">1dp</item>
         <item name="tabIndicatorColor">@color/secondaryTextColor</item>
 

@@ -28,8 +28,8 @@ data class MissedIngredient(
     val original: String,
     @SerializedName("originalName")
     val originalName: String,
-    @SerializedName("originalString")
-    val originalString: String,
+  //  @SerializedName("originalString")
+  //  val originalString: String,
     @SerializedName("unit")
     val unit: String,
     @SerializedName("unitLong")

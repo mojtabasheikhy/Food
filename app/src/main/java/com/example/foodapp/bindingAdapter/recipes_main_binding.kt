@@ -22,9 +22,10 @@ class recipes_main_binding {
         {
             coordinatorLayout.setOnClickListener{
                 try {
-                    Log.e("Sd","ASd")
+                    Log.e("Sd","")
 
                     var action_recipes_to_detail=recipes_frgDirections.actionRecipesFrgToDetailActivity(result)
+                    Log.e("Sd","$result")
                     coordinatorLayout.findNavController().navigate(action_recipes_to_detail)
                 }
                 catch (e:Exception){

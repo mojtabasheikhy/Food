@@ -22,8 +22,8 @@ data class ExtendedIngredient(
     val measures:@RawValue Measures,
     @SerializedName("meta")
     val meta:@RawValue List<String>,
-    @SerializedName("metaInformation")
-    val metaInformation:@RawValue List<String>,
+    //@SerializedName("metaInformation")
+    //val metaInformation:@RawValue List<String>,
     @SerializedName("name")
     val name: String,
     @SerializedName("nameClean")
@@ -32,8 +32,8 @@ data class ExtendedIngredient(
     val original: String,
     @SerializedName("originalName")
     val originalName: String,
-    @SerializedName("originalString")
-    val originalString: String,
+   // @SerializedName("originalString")
+    //val originalString: String,
     @SerializedName("unit")
     val unit: String
 ):Parcelable

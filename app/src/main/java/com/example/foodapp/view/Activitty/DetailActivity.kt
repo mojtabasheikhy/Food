@@ -1,6 +1,7 @@
 package com.example.foodapp.view.Activitty
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -52,7 +53,7 @@ class DetailActivity : AppCompatActivity() {
         frg_name.add("ingredient")
         frg_name.add("instruction")
 
-
+      Log.e("Sd","${args.resultRecived}")
         var bundel = Bundle()
         bundel.putParcelable(Const_var.detail_overview_bundel_key, args.resultRecived)
 
